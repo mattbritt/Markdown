@@ -10,18 +10,24 @@ export default class App extends Component {
 constructor() {
   super();
   
-let textValue = 'textValue';
+let textValue = '';
 
 this.state={ 
   textValue: textValue,
   markUpHTML: ''
+ }
 }
 
-console.log(this.state);
+componentHasMounted(){
+ let text = 'Heading\n=======\nSub-heading\n-----------\n### Another deeper heading\nParagraphs are separated\nby a blank line.\nLeave 2 spaces at the end of a line to do a  \nline break\nText attributes *italic*, **bold**, \n`monospace`, ~~strikethrough~~ .\nShopping list:\n   * apples\n * oranges\n  * pears\nNumbered list:\n  1. apples\n  2. oranges\n  3. pears\n\nThe rain---not the reign---in\nSpain.\n\n *[Herman Fassett](https://freecodecamp.com/hermanfassett)*'
+
+this.setState({
+  textValue: text
+})
+
 }
 
 handleTextAreaUpdate(e){
-  console.log(e.target.value);
   
   let markUpHTML = Marked(e.target.value);
   
